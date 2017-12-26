@@ -17,7 +17,9 @@
             <div class="left-first">
                 <span>MENU</span>
             </div>
+            
             <div id="keywordset" class="keyword">
+                <img >
                 <span> </span>
             </div>
             <div class = 'item search-show-text'>
@@ -75,9 +77,11 @@
             $("#search-form").removeAttr('action');
             if(key==='description') {
                 $("#search-form").attr('action', '/subgraph/getDescriptionData');
+                
             }
             else if(key==='comparison'){
                 $("#search-form").attr('action','/subgraph/getComparisonData');
+                
             }
             $("#search-form").submit();
         }
@@ -134,6 +138,7 @@
                         if (a[i]['property'] === 'abstract') {
                             
                             $("#keywordabstract1 p").text((a[i]['object'][0]));
+                            $("#keywordset img").attr('src', '/greenpoint.png');
                             continue;
                         }
                         graphJSON['nodes'].push([a[i]['property'], blueset]);
@@ -244,7 +249,7 @@
                         graphJSON['edges'].push([a[i]['property'],j,{color:'#3c6fb0'}]);
                     }
                 }
-                
+                $("#keywordset img").attr('src', '/redpoint.png');
                 if(name!=="undefined"){
                     $("#keywordset span").text(name)
                     $("#keywordtab1").text(name);
