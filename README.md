@@ -1,2 +1,2 @@
-# knowledge_grapsh
+# knowledge_graph
 school work
