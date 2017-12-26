@@ -1,0 +1,235 @@
+{
+    "list": [
+        {
+            "property": "http://purl.org/dc/terms/subject",
+            "object": "http://dbpedia.org/resource/1972_in_computer_science",
+            "subject": "http://dbpedia.org/ontology/redblacktree"
+        },
+        {
+            "property": "http://purl.org/dc/terms/subject",
+            "object": "http://dbpedia.org/resource/Articles_containing_proofs",
+            "subject": "http://dbpedia.org/ontology/redblacktree"
+        },
+        {
+            "property": "http://purl.org/dc/terms/subject",
+            "object": "http://dbpedia.org/resource/Articles_with_example_C_code",
+            "subject": "http://dbpedia.org/ontology/redblacktree"
+        },
+        {
+            "property": "http://purl.org/dc/terms/subject",
+            "object": "http://dbpedia.org/resource/Binary_trees",
+            "subject": "http://dbpedia.org/ontology/redblacktree"
+        },
+        {
+            "property": "http://purl.org/dc/terms/subject",
+            "object": "http://dbpedia.org/resource/Search_trees",
+            "subject": "http://dbpedia.org/ontology/redblacktree"
+        },
+        {
+            "property": "http://dbpedia.org/property/name",
+            "object": "\"Red\u2013black tree\"",
+            "subject": "http://dbpedia.org/ontology/redblacktree"
+        },
+
+        {
+            "property": "http://dbpedia.org/property/inventedBy",
+            "object": "http://dbpedia.org/resource/Rudolf_Bayer",
+            "subject": "http://dbpedia.org/ontology/redblacktree"
+        },
+        {
+            "property": "http://dbpedia.org/property/inventedYear",
+            "object": "1972",
+            "subject": "http://dbpedia.org/ontology/redblacktree"
+        },
+        {
+            "property": "http://purl.org/dc/terms/subject",
+            "object": "http://dbpedia.org/resource/1962_in_computer_science",
+            "subject": "http://dbpedia.org/ontology/avltree"
+        },
+        {
+            "property": "http://purl.org/dc/terms/subject",
+            "object": "http://dbpedia.org/resource/Binary_trees",
+            "subject": "http://dbpedia.org/ontology/avltree"
+        },
+        {
+            "property": "http://purl.org/dc/terms/subject",
+            "object": "http://dbpedia.org/resource/Search_trees",
+            "subject": "http://dbpedia.org/ontology/avltree"
+        },
+
+        {
+            "property": "http://purl.org/dc/terms/subject",
+            "object": "http://dbpedia.org/resource/Soviet_inventions",
+            "subject": "http://dbpedia.org/ontology/avltree"
+        },
+
+        {
+            "property": "http://dbpedia.org/property/name",
+            "object": "\"AVL tree\"",
+            "subject": "http://dbpedia.org/ontology/avltree"
+        },
+        {
+            "property": "http://dbpedia.org/property/inventedBy",
+            "object": "\"Georgy Adelson-Velsky and Evgenii Landis\"",
+            "subject": "http://dbpedia.org/ontology/avltree"
+        },
+        {
+            "property": "http://dbpedia.org/property/inventedYear",
+            "object": "1962",
+            "subject": "http://dbpedia.org/ontology/avltree"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/SongWriter",
+            "property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "object": "http://www.w3.org/2002/07/owl#Class"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/SongWriter",
+            "property": "http://www.w3.org/2000/01/rdf-schema#label",
+            "object": "\"songwriter\"@en"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/SongWriter",
+            "property": "http://www.w3.org/2000/01/rdf-schema#label",
+            "object": "\"Liedschreiber\"@de"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/SongWriter",
+            "property": "http://www.w3.org/2000/01/rdf-schema#comment",
+            "object": "\"apersonwhowritessongs.\"@en"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/SongWriter",
+            "property": "http://www.w3.org/2000/01/rdf-schema#comment",
+            "object": "\"eenpersoondiedemuzieken/ofdetekstvoorpopulairemuzieknummersschrijft.\"@nl"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/SongWriter",
+            "property": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "object": "http://dbpedia.org/ontology/Writer"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/SongWriter",
+            "property": "http://www.w3.org/2002/07/owl#equivalentClass",
+            "object": "http://www.wikidata.org/entity/Q753110"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/SongWriter",
+            "property": "http://www.w3.org/ns/prov#wasDerivedFrom",
+            "object": "http://mappings.dbpedia.org/index.php/OntologyClass:SongWriter"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/Square",
+            "property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "object": "http://www.w3.org/2002/07/owl#Class"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/Square",
+            "property": "http://www.w3.org/2000/01/rdf-schema#label",
+            "object": "\"square\"@en"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/Square",
+            "property": "http://www.w3.org/2000/01/rdf-schema#label",
+            "object": "\"cearn\u00F3g\"@ga"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/Square",
+            "property": "http://www.w3.org/2000/01/rdf-schema#label",
+            "object": "\"Platz\"@de"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/Square",
+            "property": "http://www.w3.org/2000/01/rdf-schema#label",
+            "object": "\"plein\"@nl"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/Square",
+            "property": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "object": "http://dbpedia.org/ontology/ArchitecturalStructure"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/Square",
+            "property": "http://www.w3.org/2002/07/owl#equivalentClass",
+            "object": "http://www.wikidata.org/entity/Q174782"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/Square",
+            "property": "http://www.w3.org/ns/prov#wasDerivedFrom",
+            "object": "http://mappings.dbpedia.org/index.php/OntologyClass:Square"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/University",
+            "property": "http://www.w3.org/2000/01/rdf-schema#label",
+            "object": "\"university\"@en"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/University",
+            "property": "http://www.w3.org/2000/01/rdf-schema#label",
+            "object": "\"大学\"@zh"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/University",
+            "property": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "object": "http://dbpedia.org/ontology/EducationalInstitution"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/University",
+            "property": "http://www.w3.org/2002/07/owl#equivalentClass",
+            "object": "http://schema.org/CollegeOrUniversity"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/University",
+            "property": "http://www.w3.org/2002/07/owl#equivalentClass",
+            "object": "http://www.wikidata.org/entity/Q3918"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/University",
+            "property": "http://www.w3.org/ns/prov#wasDerivedFrom",
+            "object": "http://mappings.dbpedia.org/index.php/OntologyClass:University"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/School",
+            "property": "http://www.w3.org/2000/01/rdf-schema#label",
+            "object": "\"school\"@en"
+        },
+        {"property": "http://dbpedia.org/ontology/abstract", "object": " A school is an institution designed to provide learning spaces and learning environments for the teaching of students under the direction of teachers. Most countries have systems of formal education, which is commonly compulsory. In these systems, students progress through a series of schools.", "subject": "http://dbpedia.org/ontology/School"},
+        {"property": "http://dbpedia.org/ontology/abstract", "object": " A university  is an institution of higher education and research which awards academic degrees in various academic disciplines. Universities typically provide undergraduate education and postgraduate education.", "subject": "http://dbpedia.org/ontology/University"},
+        {
+            "subject": "http://dbpedia.org/ontology/School",
+            "property": "http://www.w3.org/2000/01/rdf-schema#label",
+            "object": "\"学校\"@zh"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/School",
+            "property": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "object": "http://dbpedia.org/ontology/EducationalInstitution"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/School",
+            "property": "http://www.w3.org/2002/07/owl#equivalentClass",
+            "object": "http://schema.org/School"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/School",
+            "property": "http://www.w3.org/2002/07/owl#equivalentClass",
+            "object": "http://www.wikidata.org/entity/Q3914"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/School",
+            "property": "http://www.w3.org/ns/prov#wasDerivedFrom",
+            "object": "http://mappings.dbpedia.org/index.php/OntologyClass:School"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/redblacktree",
+            "property": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "object": "http://dbpedia.org/ontology/tree"
+        },        {
+            "subject": "http://dbpedia.org/ontology/avltree",
+            "property": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "object": "http://dbpedia.org/ontology/tree"
+        },
+        {"property": "http://dbpedia.org/ontology/abstract", "object": "for the basic operations. For lookup-intensive applications, AVL trees are faster than redblack trees because they are more strictly balanced. Similar to redblack trees, AVL trees are height-balanced. Both are in general not weight-balanced ; that is, sibling nodes can have hugely differing numbers of descendants.", "subject": "http://dbpedia.org/ontology/avltree"},
+        {"property": "http://dbpedia.org/ontology/abstract", "object": " there are only two colors. The tree does not contain any other data specific to its being a redblack tree so its memory footprint is almost identical to a classic (uncolored) binary search tree. In many cases the additional bit of information can be stored at no additional memory cost.", "subject": "http://dbpedia.org/ontology/redblacktree"}
+    ]
+}

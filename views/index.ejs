@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang = "en">
+<script src="/jquery.min.js"></script>
+<script src="/springy_after.js"></script>
+<script src="/springyui_after.js"></script>
+<link rel="stylesheet" type="text/css" href='/main_copy.css'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <nav id="header" class="navigation" data-section="all">
+        <div class="header-main">
+            
+            <div class="left-first">
+                <span>MENU</span>
+            </div>
+            <div id="keywordset" class="keyword">
+                <span> </span>
+            </div>
+            <div class = 'item search-show-text'>
+                <img src="/search.png" width="15" height="15"/>
+            </div>
+            <div class="search">
+                <form id = "search-form" action="" method="POST">
+                    <input type="text" id="search-text" placeholder="请输入关键词" class="search-input js-search-input" name="nameid">
+                </form>
+            </div>
+            <button class="description" onclick="searchText('description');">描述</button>
+            <button class="comparison" onclick="searchText('comparison');">相似</button>
+            <div class="flex4">
+                <span>认知子图</span>
+            </div>
+        </div>
+    </nav>
+    <div class="page-board" id="page-board">
+        <div class="message-part" id ="message-part" >
+            <div class="topmessage">
+                <div class="listicon">
+                    <img src="/listicon.png"/>
+                </div>
+            
+                <p>简介</p>
+            </div>
+            <div class='tabcards' id='tabcards'>
+                <div class="backgroudpane">
+            
+                </div>
+                <div class="test_box">
+                    <div class="test_tab">
+                        <input type="radio" id="testTabRadio1" class="test_radio" name="tab" checked="checked" />
+                        <label class="test_label" for="testTabRadio1" id="keywordtab1"> </label>
+                        <div class="test_tab_content" id="keywordabstract1">
+                            <p> </p>
+                        </div>
+                    </div>
+                    <div class="test_tab">
+                        <input type="radio" id="testTabRadio2" class="test_radio" name="tab" />
+                        <label class="test_label" for="testTabRadio2" id="keywordtab2"> </label>
+                        <div class="test_tab_content" id="keywordabstract2">
+                            <p> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="infomessage">
+                <img  src="/infomessage.png"/>
+            </div>
+        </div>
+    <script>
+        function  searchText(key)
+        {
+            $("#search-form").removeAttr('action');
+            if(key==='description') {
+                $("#search-form").attr('action', '/subgraph/getDescriptionData');
+            }
+            else if(key==='comparison'){
+                $("#search-form").attr('action','/subgraph/getComparisonData');
+            }
+            $("#search-form").submit();
+        }
+    </script>
+    
+    <script>
+        function samearry(array1,array2) {
+            for(var i=0 ; i<array2.length;i++){
+                if(array1.toString()=== array2[i].toString()){
+                    return i;
+                }
+            }
+            return -1;
+        }
+        var red =["#B04B70","#72183A","#B87B9D"] ; //Main Dark Light
+        var blue =["#45518A","#16225A","#7A87C4"] ;
+        var green =["#85B74E","#4A7719","#AEDB7D"] ;
+        var yellow = ["#CAA856","#83651C","#E5CF9C"];
+        var white = '#ffffff';
+        var blueset = {background:blue[0],selectedcolor:blue[1],nearestcolor:blue[2],color:white};
+        var redset = {background:red[0],selectedcolor:red[1],nearestcolor:red[2],color:white};
+        var greenset = {background:green[0],selectedcolor:green[1],nearestcolor:green[2],color:white};
+        var yellowset = {background:yellow[0],selectedcolor:yellow[1],nearestcolor:yellow[2],color:white};
+
+        var string = '<%- (locals.resdata)%>';//fucking!
+        var s = JSON.parse(string);
+        var graphJSON = {
+            "nodes": [
+            ],
+            "edges": [
+            ]
+        };
+        if ((s['data']['hasComparison'] === true)) {
+                string = s;
+            
+                if (string['data']['hasComparison'] === true) {
+                    var comparison= string['data']['original']['keyword']+'-'+string['data']['comparison']['keyword'];
+                    $("#keywordtab1").text(string['data']['original']['keyword']);
+                    $("#keywordtab2").text(string['data']['comparison']['keyword']);
+                    var a = string['data']['original']['POList'];
+                    //var subjecta = a[0]['subject'];
+                    var subjecta = comparison;
+                    graphJSON['nodes'].push([subjecta, blueset]);
+                    for (var i = 0; i < a.length; i++) {
+//            if (a[i]['property'] === 'label'){
+//                continue;
+//            }
+                        if (a[i]['property'] === 'comment') {
+                            continue;
+                        }
+                        if (a[i]['property'] === 'sameAs') {
+                            continue;
+                        }
+                        if (a[i]['property'] === 'abstract') {
+                            
+                            $("#keywordabstract1 p").text((a[i]['object'][0]));
+                            continue;
+                        }
+                        graphJSON['nodes'].push([a[i]['property'], blueset]);
+                        graphJSON['edges'].push([subjecta, a[i]['property'], {color: blue[0]}]);
+                        for (var j of a[i]['object']) {
+                            graphJSON['nodes'].push([j, blueset]);
+                            graphJSON['edges'].push([a[i]['property'], j, {color: blue[0]}]);
+                        }
+                    }
+
+                    a = string['data']['comparison']['POList'];
+                    //var subjectb = a[0]['subject'];
+                    var subjectb = comparison;
+                    var switchb = 0;
+                    graphJSON['nodes'].push([subjectb, redset]);
+                    for (var i = 0; i < a.length; i++) {
+//            if (a[i]['property'] === 'label'){
+//                continue;
+//            }
+                        if (a[i]['property'] === 'comment') {
+                            continue;
+                        }
+                        if (a[i]['property'] === 'sameAs') {
+                            continue;
+                        }
+                        if (a[i]['property'] === 'abstract') {
+                            $("#keywordabstract2 p").text(a[i]['object'][0]);
+                            
+                            continue;
+                        }
+                        var posnum = samearry([subjecta, a[i]['property'], {color: blue[0]}], graphJSON['edges']);
+                        if (posnum !== -1) {
+                            graphJSON['edges'][posnum][0] = comparison;
+                            graphJSON['edges'][posnum][2] = {color: yellow[0]};
+                            var pnodenum = samearry([a[i]['property'], blueset], graphJSON['nodes']);
+                            graphJSON['nodes'][pnodenum][1] = yellowset;
+                            if (switchb === 0) {
+                                var snodenum = samearry([subjecta, blueset], graphJSON['nodes']);
+                                graphJSON['nodes'][snodenum][1] = yellowset;
+                                graphJSON['nodes'][snodenum][0] = comparison;
+                                snodenum = samearry([subjectb, redset], graphJSON['nodes']);
+                                graphJSON['nodes'][snodenum][1] = yellowset;
+                                graphJSON['nodes'][snodenum][0] = comparison;
+                                switchb = -1;
+                            }
+                        }
+                        else {
+                            graphJSON['nodes'].push([a[i]['property'], redset]);
+                            graphJSON['edges'].push([subjectb, a[i]['property'], {color: red[0]}]);
+                        }
+                        for (var j of a[i]['object']) {
+                            var num = samearry([a[i]['property'], j, {color: blue[0]}], graphJSON['edges']);
+                            if (num !== -1) {
+                                graphJSON['edges'][num][2].color = green[0];
+                            }
+                            else {
+                                graphJSON['nodes'].push([j, redset]);
+                                graphJSON['edges'].push([a[i]['property'], j, {color: red[0]}])
+                            }
+
+                        }
+                    }
+
+                    for (var i = 0; i < graphJSON['edges'].length; i++) {
+                        if (graphJSON['edges'][i][2].color === green[0]) {
+                            for (var j = 0; j < graphJSON['nodes'].length; j++) {
+                                if (graphJSON['nodes'][j][0] === graphJSON['edges'][i][0]) {
+                                    graphJSON['nodes'][j][1] = greenset;
+                                }
+                                if (graphJSON['nodes'][j][0] === graphJSON['edges'][i][1]) {
+                                    graphJSON['nodes'][j][1] = greenset;
+                                }
+                            }
+                        }
+
+                    }
+                    $("#keywordset span").text(comparison)
+                    
+                }
+            }
+            else{
+                var a = s['data']['POList'];
+                var name = "undefined";
+                for (var i = 0 ;i<a.length;i++) {
+//                if (a[i]['property'] === 'label'){
+//                    continue;
+//                }
+                    if (a[i]['property'] === 'comment'){
+                        continue;
+                    }
+                    if (a[i]['property'] === 'sameAs'){
+                        continue;
+                    }
+                    if (a[i]['property'] === 'abstract'){
+                        $("#keywordabstract1 p").text(a[i]['object'][0]);
+                        $("#keywordabstract2 p").text(a[i]['object'][0]);
+                        continue;
+                        
+                    }
+                    if(a[i]['property']==='name'){
+                        name =a[i]['object'][0];
+                        
+                    }
+                    graphJSON['nodes'].push([a[i]['subject'],redset],[a[i]['property'],redset]);
+                    graphJSON['edges'].push([a[i]['subject'],a[i]['property'],{color:'#b04b71'}]);
+                    for(var j of a[i]['object']){
+                        graphJSON['nodes'].push([j,blueset]);
+                        graphJSON['edges'].push([a[i]['property'],j,{color:'#3c6fb0'}]);
+                    }
+                }
+                
+                if(name!=="undefined"){
+                    $("#keywordset span").text(name)
+                    $("#keywordtab1").text(name);
+                    $("#keywordtab2").text(" ");
+                    $("#keywordtab2").css("background-color","#273138");
+                }
+                else{
+                    $("#keywordset span").text(s['data']['keyword']);
+                    $("#keywordtab1").text(s['data']['keyword']);
+                    $("#keywordtab2").text(" ");
+                    $("#keywordtab2").css("background-color","#273138");
+                }
+
+
+            }
+        jQuery(function(){
+            var graph = new Springy.Graph();
+            graph.loadJSON(graphJSON);
+            var springy = jQuery('#springydemo').springy({
+                graph: graph
+            });
+        });
+    </script>
+
+    <script>
+        var myCanvas = "<canvas id='springydemo' width='" + (parseInt(window.innerWidth)*0.7) + "px' height='"+ (parseInt(window.innerHeight)-75) + "px'></canvas>";
+        document.getElementById('page-board').insertAdjacentHTML("afterBegin", myCanvas);
+    </script>
+    
+    </div>
+</body>
+</html>

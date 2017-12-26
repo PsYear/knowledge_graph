@@ -1,0 +1,144 @@
+{
+    "list": [
+        {
+            "subject": "http://dbpedia.org/ontology/SongWriter",
+            "property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "object": "http://www.w3.org/2002/07/owl#Class"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/SongWriter",
+            "property": "http://www.w3.org/2000/01/rdf-schema#label",
+            "object": "\"songwriter\"@en"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/SongWriter",
+            "property": "http://www.w3.org/2000/01/rdf-schema#label",
+            "object": "\"Liedschreiber\"@de"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/SongWriter",
+            "property": "http://www.w3.org/2000/01/rdf-schema#comment",
+            "object": "\"apersonwhowritessongs.\"@en"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/SongWriter",
+            "property": "http://www.w3.org/2000/01/rdf-schema#comment",
+            "object": "\"eenpersoondiedemuzieken/ofdetekstvoorpopulairemuzieknummersschrijft.\"@nl"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/SongWriter",
+            "property": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "object": "http://dbpedia.org/ontology/Writer"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/SongWriter",
+            "property": "http://www.w3.org/2002/07/owl#equivalentClass",
+            "object": "http://www.wikidata.org/entity/Q753110"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/SongWriter",
+            "property": "http://www.w3.org/ns/prov#wasDerivedFrom",
+            "object": "http://mappings.dbpedia.org/index.php/OntologyClass:SongWriter"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/Square",
+            "property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "object": "http://www.w3.org/2002/07/owl#Class"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/Square",
+            "property": "http://www.w3.org/2000/01/rdf-schema#label",
+            "object": "\"square\"@en"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/Square",
+            "property": "http://www.w3.org/2000/01/rdf-schema#label",
+            "object": "\"cearn\u00F3g\"@ga"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/Square",
+            "property": "http://www.w3.org/2000/01/rdf-schema#label",
+            "object": "\"Platz\"@de"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/Square",
+            "property": "http://www.w3.org/2000/01/rdf-schema#label",
+            "object": "\"plein\"@nl"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/Square",
+            "property": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "object": "http://dbpedia.org/ontology/ArchitecturalStructure"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/Square",
+            "property": "http://www.w3.org/2002/07/owl#equivalentClass",
+            "object": "http://www.wikidata.org/entity/Q174782"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/Square",
+            "property": "http://www.w3.org/ns/prov#wasDerivedFrom",
+            "object": "http://mappings.dbpedia.org/index.php/OntologyClass:Square"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/University",
+            "property": "http://www.w3.org/2000/01/rdf-schema#label",
+            "object": "\"university\"@en"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/University",
+            "property": "http://www.w3.org/2000/01/rdf-schema#label",
+            "object": "\"大学\"@zh"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/University",
+            "property": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "object": "http://dbpedia.org/ontology/EducationalInstitution"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/University",
+            "property": "http://www.w3.org/2002/07/owl#equivalentClass",
+            "object": "http://schema.org/CollegeOrUniversity"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/University",
+            "property": "http://www.w3.org/2002/07/owl#equivalentClass",
+            "object": "http://www.wikidata.org/entity/Q3918"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/University",
+            "property": "http://www.w3.org/ns/prov#wasDerivedFrom",
+            "object": "http://mappings.dbpedia.org/index.php/OntologyClass:University"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/School",
+            "property": "http://www.w3.org/2000/01/rdf-schema#label",
+            "object": "\"school\"@en"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/School",
+            "property": "http://www.w3.org/2000/01/rdf-schema#label",
+            "object": "\"学校\"@zh"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/School",
+            "property": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+            "object": "http://dbpedia.org/ontology/EducationalInstitution"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/School",
+            "property": "http://www.w3.org/2002/07/owl#equivalentClass",
+            "object": "http://schema.org/School"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/School",
+            "property": "http://www.w3.org/2002/07/owl#equivalentClass",
+            "object": "http://www.wikidata.org/entity/Q3914"
+        },
+        {
+            "subject": "http://dbpedia.org/ontology/School",
+            "property": "http://www.w3.org/ns/prov#wasDerivedFrom",
+            "object": "http://mappings.dbpedia.org/index.php/OntologyClass:School"
+        }
+    ]
+}

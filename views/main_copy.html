@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="../public/jquery.min.js"></script>
+<script src="../public/springy_after.js"></script>
+<script src="../public/springyui_after.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav id="header" class="navigation" data-section="all">
+    <div class="header-main">
+        
+        <div class="left-first">
+            <span>MENU</span>
+        </div>
+        <div class="keyword">
+            <span>AVLtree</span>
+        </div>
+        <div class = 'item search-show-text'>
+            <img src="search.png" width="15" height="15"/>
+        </div>
+        <div class="search">
+            <input type="text" id="search-text" placeholder="请输入关键词" class="search-input js-search-input" value="">
+        </div>
+        
+        <button class="description">
+            <span>描述</span>
+        </button>
+        <button class="comparison">
+            <span>对比</span>
+        </button>
+
+        <div class="flex4">
+            <span>认知子图</span>
+        </div>
+    </div>
+    
+    
+</nav>
+<div class="page-board" id="page-board">
+    <script>
+        var red =["#B04B70","#72183A","#B87B9D"] ; //Main Dark Light
+        var blue =["#45518A","#16225A","#7A87C4"] ;
+        var green =["#85B74E","#4A7719","#AEDB7D"] ;
+        var yellow = ["#CAA856","#83651C","#E5CF9C"];
+        var white = '#ffffff';
+        var blueset = {background:blue[0],selectedcolor:blue[1],nearestcolor:blue[2],color:white};
+        var redset = {background:red[0],selectedcolor:red[1],nearestcolor:red[2],color:white};
+        var greenset = {background:green[0],selectedcolor:green[1],nearestcolor:green[2],color:white};
+        var yellowset = {background:yellow[0],selectedcolor:yellow[1],nearestcolor:yellow[2],color:white};
+ 
+        var s = '{"status":"200","message":"查询成功","data":{"hasComparison":true,"original":{"keyword":"avltree","POList":[{"subject":"avltree","property":"inventedBy","object":["Georgy Adelson-Velsky and Evgenii Landis"]},{"subject":"avltree","property":"inventedYear","object":["1962"]},{"subject":"avltree","property":"inventedDAy","object":["2012"]},{"subject":"avltree","property":"name","object":["AVL tree"]},{"subject":"avltree","property":"subject","object":[" 1962_in_computer_science"," Binary_trees"," Search_trees"," Soviet_inventions"]}],"PSList":[]},"comparison":{"keyword":"redblacktree","POList":[{"subject":"redblacktree","property":"inventedBy","object":["Rudolf_Bayer"]},{"subject":"redblacktree","property":"inventedYear","object":["1972"]},{"subject":"redblacktree","property":"name","object":["Red black tree"]},{"subject":"redblacktree","property":"inventedmonth","object":["777"]},{"subject":"redblacktree","property":"subject","object":[" 1972_in_computer_science"," Articles_containing_proofs"," Articles_with_example_C_code"," Binary_trees"," Search_trees"]}],"PSList":[]}}}';//fucking!
+        var graphJSON = {
+            "nodes": [
+            ],
+            "edges": [
+            ]
+        };
+        var string = JSON.parse(s);
+
+        function samearry(array1,array2) {
+            for(var i=0 ; i<array2.length;i++){
+                if(array1.toString()=== array2[i].toString()){
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        var comparison= "comparison"
+
+        if (string['data']['hasComparison'] === true){
+
+            var a = string['data']['original']['POList'];
+            //var subjecta = a[0]['subject'];
+            var subjecta = comparison;
+            graphJSON['nodes'].push([subjecta, blueset]);
+            for (var i = 0 ;i<a.length;i++) {
+//            if (a[i]['property'] === 'label'){
+//                continue;
+//            }
+                if (a[i]['property'] === 'comment'){
+                    continue;
+                }
+                if (a[i]['property'] === 'sameAs'){
+                    continue;
+                }
+                if (a[i]['property'] === 'abstract'){
+                    continue;
+                }
+                graphJSON['nodes'].push([a[i]['property'],blueset]);
+                graphJSON['edges'].push([subjecta,a[i]['property'],{color:blue[0]}]);
+                for(var j of a[i]['object']){
+                    graphJSON['nodes'].push([j,blueset]);
+                    graphJSON['edges'].push([a[i]['property'],j,{color:blue[0]}]);
+                }
+            }
+
+            a = string['data']['comparison']['POList'];
+            //var subjectb = a[0]['subject'];
+            var subjectb = comparison;
+            var switchb =0;
+            graphJSON['nodes'].push([subjectb, redset]);
+            for (var i = 0 ;i<a.length;i++) {
+//            if (a[i]['property'] === 'label'){
+//                continue;
+//            }
+                if (a[i]['property'] === 'comment'){
+                    continue;
+                }
+                if (a[i]['property'] === 'sameAs'){
+                    continue;
+                }
+                if (a[i]['property'] === 'abstract'){
+                    continue;
+                }
+                var posnum = samearry([subjecta,a[i]['property'],{color:blue[0]}],graphJSON['edges']);
+                if(posnum!==-1){
+                    graphJSON['edges'][posnum][0] = comparison;
+                    graphJSON['edges'][posnum][2] = {color:yellow[0]};
+                    var pnodenum = samearry([a[i]['property'],blueset],graphJSON['nodes']);
+                    graphJSON['nodes'][pnodenum][1]=yellowset;
+                    if(switchb===0) {
+                        var snodenum = samearry([subjecta, blueset], graphJSON['nodes']);
+                        graphJSON['nodes'][snodenum][1] = yellowset;
+                        graphJSON['nodes'][snodenum][0] = comparison;
+                        snodenum = samearry([subjectb, redset], graphJSON['nodes']);
+                        graphJSON['nodes'][snodenum][1] = yellowset;
+                        graphJSON['nodes'][snodenum][0] = comparison;
+                        switchb=-1;
+                    }
+                }
+                else {
+                    graphJSON['nodes'].push([a[i]['property'], redset]);
+                    graphJSON['edges'].push([subjectb,a[i]['property'],{color:red[0]}]);
+                }
+                for(var j of a[i]['object']){
+                    var num = samearry([a[i]['property'],j,{color:blue[0]}],graphJSON['edges']);
+                    if(num!==-1){
+                        graphJSON['edges'][num][2].color = green[0];
+                    }
+                    else {
+                        graphJSON['nodes'].push([j,redset]);
+                        graphJSON['edges'].push([a[i]['property'],j,{color:red[0]}])
+                    }
+
+                }
+            }
+            
+            for(var i=0 ;i< graphJSON['edges'].length;i++){
+                if(graphJSON['edges'][i][2].color === green[0]){
+                    for(var j=0 ;j< graphJSON['nodes'].length;j++){
+                        if(graphJSON['nodes'][j][0] === graphJSON['edges'][i][0]){
+                            graphJSON['nodes'][j][1]= greenset;
+                        }
+                        if(graphJSON['nodes'][j][0] === graphJSON['edges'][i][1]){
+                            graphJSON['nodes'][j][1]= greenset;
+                        }
+                    }
+                }
+                
+            }
+            
+            jQuery(function(){
+                var graph = new Springy.Graph();
+                graph.loadJSON(graphJSON);
+                var springy = jQuery('#springydemo').springy({
+                    graph: graph
+                });
+            });
+        }
+        else{
+
+        }
+        
+    
+    </script>
+    <!--<canvas id="springydemo"></canvas>-->
+
+    <script>
+        var myCanvas = "<canvas id='springydemo' width='" + (parseInt(window.innerWidth)*0.7) + "px' height='"+ (parseInt(window.innerHeight)-75) + "px'></canvas>";
+        document.getElementById('page-board').insertAdjacentHTML("afterBegin", myCanvas);
+    </script>
+    <div class="message-part" id ="message-part" >
+        <div class="topmessage">
+            <div class="listicon">
+                <img src="listicon.png"/>
+            </div>
+            
+            <p>简介</p>
+        </div>
+        <div class='tabcards' id='tabcards'>
+            <div class="backgroudpane">
+    
+            </div>
+            <div class="test_box">
+                <div class="test_tab">
+                    <input type="radio" id="testTabRadio1" class="test_radio" name="tab" checked="checked" />
+                    <label class="test_label" for="testTabRadio1">选项卡1</label>
+                    <div class="test_tab_content">
+                        <p>超级文本标记语言是标准通用标记语言下的一个应用，也是一种规范，一种标准，超文本标记语言超文本标记语言(16张)它通过标记符号来标记要显示的网页中的各个部分。网页文件本身是一种文本文件，通过在文本文件中添加标记符，可以告诉浏览器如何显示其中的内容（如：文字如何处理，画面如何安排，图片如何显示等）。浏览器按顺序阅读网页文件，然后根据标记符解释和显示其标记的内容，对书写出错的标记将不指出其错误，且不停止其解释执行。</p>
+                    </div>
+                </div>
+                <div class="test_tab">
+                    <input type="radio" id="testTabRadio2" class="test_radio" name="tab" />
+                    <label class="test_label" for="testTabRadio2">选项卡2</label>
+                    <div class="test_tab_content">
+                        <p>超级文本标记语言是标准通用标记语言下的一个应用，也是一种规范，一种标准，超文本标记语言超文本标记语言(16张)它通过标记符号来标记要显示的网页中的各个部分。网页文件本身是一种文本文件，通过在文本文件中添加标记符，可以告诉浏览器如何显示其中的内容（如：文字如何处理，画面如何安排，图片如何显示等）。浏览器按顺序阅读网页文件，然后根据标记符解释和显示其标记的内容，对书写出错的标记将不指出其错误，且不停止其解释执行过程，编制者只能通过显示效果来分析出错原因和出错部位。但需要注意的是，对于不同的浏览器，对同一标记符可能会有不完全相同的解释，因而可能会有不同的显示效果。超级文本标记语言是标准通用标记语言下的一个应用，也是一种规范，一种标准，超文本标记语言超文本标记语言(16张)它通过标记符号</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="infomessage">
+            <img  src="infomessage.png"/>
+        </div>
+    </div>
+</div>
+</body>
+<link rel="stylesheet" type="text/css" href='../public/main_copy.css'>
+</html>
