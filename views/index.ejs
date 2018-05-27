@@ -4,6 +4,10 @@
 <script src="/springy_after.js"></script>
 <script src="/springyui_after.js"></script>
 <link rel="stylesheet" type="text/css" href='/main_copy.css'>
+<link rel="stylesheet" type="text/css" href='/sidebareffect.css'>
+<link rel="stylesheet" type="text/css" href='/star.css'>
+<link href="/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<head>
 
 <head>
     <meta charset="UTF-8">
@@ -15,9 +19,8 @@
         <div class="header-main">
             
             <div class="left-first">
-                <span>MENU</span>
+                <button onclick="fadeIn()" style="color:black;background: #f5f7f6;font-weight: bold;">查询历史</button>
             </div>
-            
             <div id="keywordset" class="keyword">
                 <img >
                 <span> </span>
@@ -37,13 +40,49 @@
             </div>
         </div>
     </nav>
+
+    <div class='sidebar fullHeight'>
+        <div onclick="fadeOut()" class="quit" ><</div>
+        <h1>查询历史</h1>
+        <div class="info">
+            <div class="stringdate">
+                <p class="string">Data structure</p>
+                <p>2018/4/26 13:50</p>
+            </div>
+            <div class="D">
+                <p>D</p>
+            </div>
+        </div>
+        <div class="info">
+            <div class="stringdate">
+                <p class="string">School</p>
+                <p>2018/4/26 13:50</p>
+            </div>
+            <div class="C">
+                <p>C</p>
+            </div>
+        </div>
+
+        
+    </div>
+    
     <div class="page-board" id="page-board">
         <div class="message-part" id ="message-part" >
             <div class="topmessage">
                 <div class="listicon">
-                    <img src="/listicon.png"/>
+                    <img id= "listicon_blue_icon" style="display:none;" src="/listicon_blue.png"/>
+                    <p id="listicon_blue"></p><br/>
+                    <img id= "listicon_red_icon" style="display:none;" src="/listicon_red.png"/>
+                    <p id="listicon_red"></p><br/>
+                    <img id= "listicon_green_icon" style="display:none;" src="/listicon_green.png"/>
+                    <p id="listicon_green"></p><br/>
+                    <img id= "listicon_yellow_icon" style="display:none;" src="/listicon_yellow.png"/>
+                    <p id="listicon_yellow"></p><br/>
+                    <div class="infomessage">
+                        <img  src="/infomessage.png" style="width:150px">
+                    </div>
                 </div>
-            
+                
                 <p>简介</p>
             </div>
             <div class='tabcards' id='tabcards'>
@@ -62,15 +101,32 @@
                         <input type="radio" id="testTabRadio2" class="test_radio" name="tab" />
                         <label class="test_label" for="testTabRadio2" id="keywordtab2"> </label>
                         <div class="test_tab_content" id="keywordabstract2">
-                            <p> </p>
+                            <p></p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="infomessage">
-                <img  src="/infomessage.png"/>
+            <div class="starandrecom">
+                
+                <div class="recommend">
+                    <p class="recostring">相关推荐</p>
+                    <p class="recocontent">redtree</p>
+                </div>
+                <div class="star-rating">
+                    <div class="scoring">请给准确度打分</div>
+                    <fieldset>
+                        <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="1分">五星</label>
+                        <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="2分">四星</label>
+                        <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3分">三星</label>
+                        <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="4分">二星</label>
+                        <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="5分">一星</label>
+                    </fieldset>
+                </div>
             </div>
+
         </div>
+            
+    </div>
     <script>
         function  searchText(key)
         {
@@ -119,6 +175,14 @@
             
                 if (string['data']['hasComparison'] === true) {
                     var comparison= string['data']['original']['keyword']+'-'+string['data']['comparison']['keyword'];
+                    $("#listicon_blue_icon").css("display","inline");
+                    $("#listicon_red_icon").css("display","inline");
+                    $("#listicon_green_icon").css("display","inline");
+                    $("#listicon_yellow_icon").css("display","inline");
+                    $("#listicon_blue").text(string['data']['original']['keyword']);
+                    $("#listicon_red").text(string['data']['comparison']['keyword']);
+                    $("#listicon_green").text("相似节点");
+                    $("#listicon_yellow").text("相反节点");
                     $("#keywordtab1").text(string['data']['original']['keyword']);
                     $("#keywordtab2").text(string['data']['comparison']['keyword']);
                     var a = string['data']['original']['POList'];
@@ -250,6 +314,10 @@
                     }
                 }
                 $("#keywordset img").attr('src', '/redpoint.png');
+                $("#listicon_blue_icon").css("display","inline");
+                $("#listicon_red_icon").css("display","inline");
+                $("#listicon_blue").text("谓语");
+                $("#listicon_red").text("宾语");
                 if(name!=="undefined"){
                     $("#keywordset span").text(name)
                     $("#keywordtab1").text(name);
@@ -281,4 +349,6 @@
     
     </div>
 </body>
+
+<script src="/sidebar.js"></script>
 </html>

@@ -3,6 +3,10 @@
 <script src="../public/jquery.min.js"></script>
 <script src="../public/springy_after.js"></script>
 <script src="../public/springyui_after.js"></script>
+<link rel="stylesheet" type="text/css" href='../public/main_copy.css'>
+<link rel="stylesheet" type="text/css" href='../public/sidebareffect.css'>
+<link rel="stylesheet" type="text/css" href='../public/star.css'>
+<link href="../public/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -12,7 +16,7 @@
     <div class="header-main">
         
         <div class="left-first">
-            <span>MENU</span>
+            <div onclick="fadeIn()">查询历史</div>
         </div>
         <div class="keyword">
             <span>AVLtree</span>
@@ -35,9 +39,13 @@
             <span>认知子图</span>
         </div>
     </div>
-    
-    
 </nav>
+<div class='sidebar fullHeight'>
+    <div onclick="fadeOut()" style="right:5px;position: absolute;">x</div>
+</div>
+
+
+
 <div class="page-board" id="page-board">
     <script>
         var red =["#B04B70","#72183A","#B87B9D"] ; //Main Dark Light
@@ -186,13 +194,13 @@
         <div class="topmessage">
             <div class="listicon">
                 <img src="../public/listicon_blue.png"/>
-                <p>avltree</p>
+                <p>avltree</p><br/>
                 <img src="../public/listicon_red.png"/>
-                <p>redblacktree</p>
+                <p>redblacktree</p><br/>
                 <img src="../public/listicon_green.png"/>
-                <p>相反节点</p>
+                <p>相反节点</p><br/>
                 <img src="../public/listicon_yellow.png"/>
-                <p>相似节点</p>
+                <p>相似节点</p><br/>
             </div>
             
             <p>简介</p>
@@ -218,11 +226,23 @@
                 </div>
             </div>
         </div>
+        <div class="star-rating">
+            <div class="scoring">请给准确度打分</div>
+            <fieldset>
+                <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="卓越">五星</label>
+                <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="优秀">四星</label>
+                <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="良好">三星</label>
+                <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="中等">二星</label>
+                <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="很差">一星</label>
+            </fieldset>
+        </div>
         <div class="infomessage">
             <img  src="infomessage.png"/>
         </div>
+        
     </div>
 </div>
 </body>
-<link rel="stylesheet" type="text/css" href='../public/main_copy.css'>
+
+<script src="../public/sidebar.js"></script>
 </html>

@@ -1,0 +1,160 @@
+body {
+    margin: 0;
+}
+.fullHeight {
+    height: 100%;
+}
+.sidebar {
+    float: left;
+    background-color: #f5f7f6; ;
+    width: 300px;
+    position: absolute;
+    opacity:0;
+    z-index: 0;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.sidebar h1{
+    margin: 20px;
+}
+
+.sidebar .quit{
+    right:10px;
+    top: 20px;
+    position: absolute;
+    font-size: 2em;
+    margin:0px;
+    color: #636363;
+}
+
+
+.sidebar .info{
+    margin: 0px;
+    display: -webkit-flex;
+    display: flex;
+    margin-left: 20px;
+    margin-top: 0px;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.sidebar .info p{
+    margin: 0px;
+
+}
+
+.sidebar .info .stringdate{
+    flex:2;
+}
+
+.sidebar .info .stringdate p.string{
+    margin: 0px;
+    font-weight:bold;
+}
+
+
+
+.sidebar .info .D{
+    font-size: 3.5em;
+    color: #F86B84;
+    margin: 0px;
+    margin-left: 30px;
+    flex:1;
+}
+
+
+.sidebar .info .C{
+    font-size: 3.5em;
+    color: #79D2BC;
+    margin: 0px;
+    margin-left: 30px;
+    flex:1;
+}
+
+@-webkit-keyframes move_right {
+    from {
+        z-index: 0;
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        z-index: 3;
+    }
+}
+
+@keyframes move_right {
+    from {
+        z-index: 0;
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        z-index: 3;
+
+    }
+}
+
+@-webkit-keyframes move_left {
+    from {
+        opacity: 1;
+        z-index: 3;
+    }
+    to {
+        opacity: 0;
+        z-index: 0;
+    }
+}
+
+@keyframes move_left {
+    from {
+        opacity: 1;
+        z-index: 3;
+    }
+    to {
+        opacity: 0;
+        z-index: 0;
+
+    }
+}
+.move_right {
+    -webkit-animation-name            : move_right;
+    animation-name            : move_right;
+    -webkit-animation-duration        : 1s;
+    animation-duration        : 1s;
+    -webkit-animation-iteration-count : 1;
+    animation-iteration-count : 1;
+    -webkit-animation-fill-mode : forwards;
+    animation-fill-mode : forwards;
+}
+
+.move_left {
+    -webkit-animation-name            : move_left;
+    animation-name            : move_left;
+    -webkit-animation-duration        : 1s;
+    animation-duration        : 1s;
+    -webkit-animation-iteration-count : 1;
+    animation-iteration-count : 1;
+    -webkit-animation-fill-mode : forwards;
+    animation-fill-mode : forwards;
+}
+
+.fadeIn {
+    -webkit-transform : translateX(120px);
+    transform : translateX(120px);
+    opacity: 1;
+}
+
+
+.fadeOutLeft {
+    -webkit-transform : translateX(-120px);
+    transform : translateX(-120px);
+    opacity: 0.0;
+    -webkit-transition :-webkit-transform .2s ease-out,opacity .2s ease-out;
+    transition :transform .2s ease-out, opacity .2s ease-out;
+}
+
